@@ -1,0 +1,26 @@
+.HeaderButton {
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ff7f22;
+    border-radius: 48px;
+    padding: 12px 18px;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.HeaderButton:hover {
+    background: #ff5722;
+}
+
+.HeaderButton:active {
+    background: #ff7f22;
+}
+
+.HeaderButton:disabled {
+    background: #ff7f22;
+}
