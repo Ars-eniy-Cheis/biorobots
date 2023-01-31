@@ -1,0 +1,19 @@
+.Header {}
+
+
+$r: #26394D; // hsl(0,100%,50%)
+$rT: #212529;
+$o: rgb(255, 128, 0); // hsl(32,100%,50%)
+$oT: rgba(255, 128, 0, 0);
+
+
+.image {
+    font-size: 10px;
+    width: 8em;
+    height: 8em;
+    background:
+        linear-gradient($r 0%, $rT 100%) 100% 100% / 4em 4em,
+        radial-gradient(8em 8em at 50% 50%, $o 49%, $oT 50%);
+        transform: rotate(-45deg);
+    background-repeat: no-repeat;
+}
