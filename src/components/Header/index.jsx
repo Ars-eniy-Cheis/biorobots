@@ -3,15 +3,15 @@ import '../../assets/styles/HeaderButton.scss'
 
 function Header() {
     return (
-        <header className='Header'>
-            <div class="wrapper header-wrapper">
+        <header>
+            <div class='header-wrapper'>
                 <div className='pac-man-logo'>
                     <div className='pac-man' />
                     <div className='dot' />
                     <div className='dot' />
                     <div className='dot' />
                 </div>
-                <button className='HeaderButton'> Произвести биоробота </button>
+                <button className='header-button'> Произвести биоробота </button>
             </div>
         </header>
     );

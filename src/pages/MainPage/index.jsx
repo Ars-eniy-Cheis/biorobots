@@ -1,6 +1,5 @@
 import Header from '../../components/Header'
 
-import logo from '../../assets/icons/logo.svg';
 import '../../assets/styles/MainPage.scss';
 
 function MainPage() {

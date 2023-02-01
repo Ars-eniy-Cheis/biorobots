@@ -1,4 +1,4 @@
-.HeaderButton {
+.header-button {
     color: #ffffff;
     background: transparent;
     border: 2px solid #ff7f22;
@@ -13,14 +13,18 @@
     cursor: pointer;
 }
 
-.HeaderButton:hover {
+.header-button:hover {
     background: #ff5722;
+    border: 2px solid #ff5722;
 }
 
-.HeaderButton:active {
+.header-button:active {
     background: #ff7f22;
+    border: 2px solid #ff7f22;
 }
 
-.HeaderButton:disabled {
-    background: #ff7f22;
+.header-button:disabled {
+    color: #4C5865;
+    border: 2px solid #4C5865;
+    background: transparent;
 }
