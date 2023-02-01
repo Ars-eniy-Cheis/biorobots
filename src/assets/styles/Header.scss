@@ -3,11 +3,13 @@ $rT: rgba(33, 37, 41, 1);
 $o: rgba(255, 127, 34, 1);
 $oT: rgba(255, 128, 0, 0);
 
-.header {
+header {
     position: relative;
 }
 
 .header-wrapper {
+    padding-left: 11%;
+    padding-right: 11%;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }

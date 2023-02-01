@@ -1,0 +1,106 @@
+h2 {
+    text-align: left;
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.wallet {
+    padding-left: 11%;
+    padding-right: 11%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 50px;
+}
+
+.coin {
+    margin-left: -10px;
+}
+
+.gypsy-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FF7F22;
+    text-decoration: underline;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.gypsy-checkbox-label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+
+.gypsy-checkbox:checked,
+.gypsy-checkbox:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.gypsy-checkbox:checked+label,
+.gypsy-checkbox:not(:checked)+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.gypsy-checkbox:checked+label:before,
+.gypsy-checkbox:not(:checked)+label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #A3B8CC;
+    background-color: none;
+}
+
+.gypsy-checkbox:checked+label:after,
+.gypsy-checkbox:not(:checked)+label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.gypsy-checkbox:checked+label:after,
+.gypsy-checkbox:not(:checked)+label:after {
+    left: 5px;
+    top: 6px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 2px solid #FF7F22;
+    border-bottom: 2px solid #FF7F22;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.gypsy-checkbox:not(:checked)+label:after {
+    opacity: 0;
+}
+
+.gypsy-checkbox:checked+label:after {
+    opacity: 1;
+}
