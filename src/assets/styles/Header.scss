@@ -5,13 +5,14 @@ $oT: rgba(255, 128, 0, 0);
 
 header {
     position: relative;
-}
-
-.header-wrapper {
     padding-left: 14%;
     padding-right: 14%;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.header-wrapper {
+    
 }
 
 @media (min-width: 600px) {

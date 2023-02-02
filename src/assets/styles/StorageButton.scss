@@ -1,0 +1,44 @@
+.storage-button {
+    width: 236px;
+    height: 48px;
+
+    border: 2px solid transparent;
+    border-radius: 48px;
+
+    background:
+        radial-gradient(82.33% 70.44% at 50% 0%, #26394D 0%, #212529 100%) padding-box fixed,
+        radial-gradient(circle, #7CDAF9 0%, #22B3E3 50%, #22B3E3 100%) border-box;
+
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+    color: #7CDAF9;
+    padding: 12px 18px;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.16));
+    cursor: pointer;
+}
+
+
+.storage-button:hover {
+    background: #7CDAF9;
+    border: 2px solid #7CDAF9;
+    box-shadow: 0px 10px 40px #1E5466;
+    color: #212529;
+}
+
+.storage-button:active {
+    border: 2px solid #22B3E3;
+    background: transparent;
+    color: #7CDAF9;
+}
+
+.storage-button:disabled {
+    border: 2px solid #4C5865;
+    color: #4C5865;
+    ;
+    background: transparent;
+}

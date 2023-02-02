@@ -4,7 +4,7 @@ import '../../assets/styles/HeaderButton.scss'
 function Header() {
     return (
         <header>
-            <div class='header-wrapper'>
+            <div className='header-wrapper'>
                 <div className='pac-man-logo'>
                     <div className='pac-man' />
                     <div className='dot' />

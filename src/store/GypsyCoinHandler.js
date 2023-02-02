@@ -11,8 +11,12 @@ class GypsyCoinHandler {
         makeAutoObservable(this)
     }
 
-    increment() {
-        this.coinsQuantity += this.gypsyingCoins;
+    increment(price) {
+        this.coinsQuantity += price;
+    }
+
+    decrement(price) {
+        this.coinsQuantity -= price;
     }
 
     check() {
