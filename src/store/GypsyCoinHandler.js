@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx"
 
-class GypsyCoin {
+class GypsyCoinHandler {
 
+    maxCoins = 100;
     coinsQuantity = 45;
     gypsyingCoins = 1;
     isCheked = false;
@@ -19,4 +20,4 @@ class GypsyCoin {
     }
 }
 
-export default new GypsyCoin()
+export default new GypsyCoinHandler()

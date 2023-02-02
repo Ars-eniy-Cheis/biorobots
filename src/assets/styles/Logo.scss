@@ -1,10 +1,9 @@
 $dark-blue: rgba(30, 41, 54, 1);
 $dark-blueT: rgba(255, 128, 0, 0);
-;
 
 .logo-grid {
-    padding-left: 11%;
-    padding-right: 11%;
+    padding-left: 0%;
+    padding-right: 0%;
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
