@@ -21,9 +21,7 @@ const Accessorie = (props) => {
 
     return (
         <div className='accessorie'>
-            
                 {image}
-            
             <div className={props.accessorieNameStyle}>
                 {props.name}
             </div>
