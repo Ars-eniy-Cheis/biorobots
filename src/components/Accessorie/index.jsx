@@ -7,10 +7,10 @@ import biohand from '../../assets/icons/biohand.png';
 import '../../assets/styles/MarketButton.scss';
 import '../../assets/styles/StorageButton.scss';
 
-const Accessorie = observer((props) => {
+const Accessorie = (props) => {
     let image = (<img alt='' className='accessorie-empty-image' />);
 
-    if ( typeof props.picture !== 'object') {
+    if (typeof props.picture !== 'object') {
         image = (<img src={props.picture} alt={props.pictureAlt} className='accessorie-image' />);
     }
 
@@ -19,20 +19,11 @@ const Accessorie = observer((props) => {
         accessorieQuantity = (<div className={props.accessorieNameStyle}> {props.accessorieQuantity} шт. </div>)
     }
 
-    /*
-    props должен содержать:
-    Нужную картинку
-    Альтернативное название картинки
-    Нужный класс css 1-ой надписи
-    Нужный класс css 2-ой надписи
-    Нужный класс css кнопки
-    обработчик кнопки
-    Стоимость комплектующей
-    */
-
     return (
         <div className='accessorie'>
-            {image}
+            
+                {image}
+            
             <div className={props.accessorieNameStyle}>
                 {props.name}
             </div>
@@ -43,6 +34,6 @@ const Accessorie = observer((props) => {
             <button className={props.buttonStyle} onClick={() => props.buttonHandler[0](props.price, props.accessorieQuantity, props.buttonHandler[1])}>{props.buttonActionName}</button>
         </div>
     );
-})
+}
 
 export default Accessorie;

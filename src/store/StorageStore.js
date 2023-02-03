@@ -1,6 +1,6 @@
-import { makeObservable, observable, action, computed } from "mobx"
+import { makeObservable, observable, action } from "mobx"
 
-class Storage {
+class StorageStore {
 
     biohandQuantity = 10;
     biohandBuyPrice = 7;
@@ -68,4 +68,4 @@ class Storage {
     }
 }
 
-export default new Storage()
+export default new StorageStore()

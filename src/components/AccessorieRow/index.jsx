@@ -6,7 +6,7 @@ import Accessorie from '../Accessorie';
 
 import '../../assets/styles/Accessorie.scss';
 
-const AccessorieRow = observer((props) => {
+const AccessorieRow = (props) => {
 
     const accessories = [];
     for (let i = 0; i < props.quantity; i++) {
@@ -38,6 +38,6 @@ const AccessorieRow = observer((props) => {
 
         </div>
     );
-})
+}
 
 export default AccessorieRow;

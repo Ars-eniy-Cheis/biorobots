@@ -10,15 +10,15 @@ import '../../assets/styles/Wallet.scss';
 const Wallet = observer((props) => {
 
     const gypsy = () => {
-        if (props.gypsyCoinHandler.coinsQuantity + props.gypsyCoinHandler.gypsyingCoins <= props.gypsyCoinHandler.maxCoins && props.gypsyCoinHandler.isCheked) {
-            props.gypsyCoinHandler.increment(props.gypsyCoinHandler.gypsyingCoins)
+        if (props.gypsyCoinStore.coinQuantity + props.gypsyCoinStore.gypsyingCoins <= props.gypsyCoinStore.maxCoins && props.gypsyCoinStore.isCheked) {
+            props.gypsyCoinStore.incrementCoinQuantity(props.gypsyCoinStore.gypsyingCoins)
         }
     }
 
     let coins = [];
 
-    for (let i = 0; i < props.gypsyCoinHandler.coinsQuantity; i++) {
-        coins.push(<img src={coin} alt='coin' className='coin' />);
+    for (let i = 0; i < props.gypsyCoinStore.coinQuantity; i++) {
+        coins.push(<img src={coin} alt='coin' />);
     }
 
     return (
@@ -27,18 +27,23 @@ const Wallet = observer((props) => {
                 Кошелёк криптовалют
             </h2>
             <div className='coins'>
-                {coins}
+                {
+                    coins.reverse().map(function (coin) {
+                        return (
+                            <div className='coin'>{coin}</div>
+                        );
+                    })
+                }
             </div>
             <div className='sub-title'>
-                {props.gypsyCoinHandler.coinsQuantity} biorobo {declination(props.gypsyCoinHandler.coinsQuantity, ['монета', 'монеты', 'монет'])}
+                {props.gypsyCoinStore.coinQuantity} biorobo {declination(props.gypsyCoinStore.coinQuantity, ['монета', 'монеты', 'монет'])}
             </div>
             <div>
                 <button className='gypsy-button' onClick={gypsy}> Нацыганить </button>
-                <input type="checkbox" className='gypsy-checkbox' id="cb2" defaultChecked={props.gypsyCoinHandler.isCheked} onChange={() => props.gypsyCoinHandler.check()} />
-                <label className='gypsy-checkbox-label' htmlFor="cb2">Цыганить по {props.gypsyCoinHandler.gypsyingCoins} {declination(props.gypsyCoinHandler.gypsyingCoins, ['монете', 'монеты', 'монет'])}
+                <input type="checkbox" className='gypsy-checkbox' id="cb2" defaultChecked={props.gypsyCoinStore.isCheked} onChange={() => props.gypsyCoinStore.check()} />
+                <label className='gypsy-checkbox-label' htmlFor="cb2">Цыганить по {props.gypsyCoinStore.gypsyingCoins} {declination(props.gypsyCoinStore.gypsyingCoins, ['монете', 'монеты', 'монет'])}
                 </label>
             </div>
-
         </div>
     );
 })

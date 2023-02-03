@@ -9,7 +9,7 @@
 }
 
 .accessorie {
-    text-align: center; 
+    
 }
 
 .accessorie-name {
@@ -34,8 +34,16 @@
     color: #A3B8CC;
 }
 
+.accessorie-image-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+}
+
 .accessorie-image {
-    width: auto;
+    
+    object-fit: cover;
+    width: 270px;
     height: 270px;
     margin-bottom: -50px;
 }
