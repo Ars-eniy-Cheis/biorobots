@@ -2,7 +2,7 @@ import { makeObservable, observable, action } from "mobx"
 
 class StorageStore {
 
-    biohandQuantity = 10;
+    biohandQuantity = 2;
     biohandBuyPrice = 7;
     biohandSellPrice = 5;
 
@@ -10,7 +10,7 @@ class StorageStore {
     chipBuyPrice = 5;
     chipSellPrice = 3;
 
-    soulQuantity = 3;
+    soulQuantity = 5;
     soulBuyPrice = 25;
     soulSellPrice = 15;
 

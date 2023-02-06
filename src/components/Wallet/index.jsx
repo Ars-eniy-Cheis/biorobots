@@ -10,8 +10,13 @@ import '../../assets/styles/Wallet.scss';
 const Wallet = observer((props) => {
 
     const gypsy = () => {
-        if (props.gypsyCoinStore.coinQuantity + props.gypsyCoinStore.gypsyingCoins <= props.gypsyCoinStore.maxCoins && props.gypsyCoinStore.isCheked) {
-            props.gypsyCoinStore.incrementCoinQuantity(props.gypsyCoinStore.gypsyingCoins)
+        if (props.gypsyCoinStore.coinQuantity + props.gypsyCoinStore.gypsyingCoins <= props.gypsyCoinStore.maxCoins) {
+            if (props.gypsyCoinStore.isCheked) {
+                props.gypsyCoinStore.incrementCoinQuantity(props.gypsyCoinStore.gypsyingCoins)
+            }
+            else {
+                props.gypsyCoinStore.incrementCoinQuantity(1)
+            }
         }
     }
 

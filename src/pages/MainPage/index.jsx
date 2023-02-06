@@ -1,7 +1,10 @@
+import { observer } from 'mobx-react-lite';
+
 import Header from '../../components/Header'
 import Logo from '../../components/Logo'
 import Wallet from '../../components/Wallet'
 import AccessorieRow from '../../components/AccessorieRow'
+import Factory from '../../components/Factory';
 
 import gypsyCoinStore from '../../store/GypsyCoinStore';
 import storageStore from '../../store/StorageStore';
@@ -12,21 +15,48 @@ import soul from '../../assets/icons/soul.png';
 
 import '../../assets/styles/MainPage.scss';
 import '../../assets/styles/Common.scss';
-import { observer } from 'mobx-react-lite';
+
+/*
+Вынести в отдельный компонент:
+
+1) Чек-бокс
+2) Кнопку
+3) Радио-баттан
+4) Картинку
+5) Картинку на фабрике
+
+Изменить отображение: 
+1) Пак-мана
+2) Чек-бокса
+3) Радио-баттана
+
+Наложить логику на:
+1) Чек-бокс и кнопку нацыганивания монет
+2) Радио-баттоны
+3) Иконки на фабрике
+4) Картинку робота на фабрике
+
+Создать функци:
+1) Выдающую текст, в зависимости от того, каких компонентов не хватает
+
+в css объеденить все повторяющиеся элементы
+
+В проверить всё ещё раз и зарефакторить при необходимости
+*/
 
 const MainPage = observer((props) => {
 
   let accessoriesQuantityInRow = 3;
 
   const buyHandler = (price, quantity, changer) => {
-    if (gypsyCoinStore.coinQuantity - price > 0) {
+    if (gypsyCoinStore.coinQuantity - price >= 0) {
       changer();
       gypsyCoinStore.decrementCoinQuantity(price);
     }
   }
 
   const sellHandler = (price, quantity, changer) => {
-    if (gypsyCoinStore.coinQuantity + price < 100 && quantity > 0) {
+    if (gypsyCoinStore.coinQuantity + price <= 100 && quantity > 0) {
       changer();
       gypsyCoinStore.incrementCoinQuantity(price);
     }
@@ -70,6 +100,9 @@ const MainPage = observer((props) => {
             accessoriePrices={[storageStore.biohandSellPrice, storageStore.chipSellPrice, storageStore.soulSellPrice]}
           />
         </div>
+        <Factory
+          partsQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
+        />
       </div>
     </div>
   );

@@ -28,6 +28,20 @@
     cursor: pointer;
 }
 
+.gypsy-button:hover{
+    color: #FF5722;
+}
+
+.gypsy-button:active{
+    color: #FF7F22;
+    text-decoration: none;
+}
+
+.gypsy-button:disabled{
+    color: #4C5865;
+    text-decoration: none;
+}
+
 .gypsy-checkbox-label {
     font-family: 'Montserrat';
     font-style: normal;

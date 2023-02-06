@@ -1,0 +1,13 @@
+.icon-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0px;
+    justify-content: space-between;
+    inline-size: max-content;
+}
+
+.icon {
+    margin-bottom: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}

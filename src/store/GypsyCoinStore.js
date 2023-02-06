@@ -3,7 +3,7 @@ class GypsyCoinStore {
 
     maxCoins = 100;
     coinQuantity = 45;
-    gypsyingCoins = 1;
+    gypsyingCoins = 5;
     isCheked = false;
 
     constructor() {

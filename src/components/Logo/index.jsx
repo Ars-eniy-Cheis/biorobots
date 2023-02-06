@@ -1,7 +1,7 @@
 import '../../assets/styles/Logo.scss';
 
-import bigRobot from '../../assets/icons/Front Male 1.png';
-import smallRobot from '../../assets/icons/Designer Male 1.png';
+import bigRobot from '../../assets/icons/robots/front-end-male-active.png';
+import smallRobot from '../../assets/icons/robots/design-male-active.png';
 
 function Logo() {
     return (

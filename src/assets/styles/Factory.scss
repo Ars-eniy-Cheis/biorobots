@@ -1,0 +1,64 @@
+.factory {}
+
+.factory-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0px;
+    justify-content: space-between;
+    inline-size: max-content;
+}
+
+.factory-item {
+    margin-right: 30px;
+    width: 270px;
+}
+
+.chooser-title {
+    text-align: left;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.chooser-radio-button {
+    border: #FF7F22;
+    width: 24px;
+    height: 24px;
+    margin-top: 0px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+
+.chooser-label {
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    
+}
+
+.chooser-union {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    justify-content: space-between;
+}
+
+.chooser-label::before {
+    content: '';
+    background: transparent;
+}
+
+.chooser-radio-button:checked+label {
+    background: #FF7F22;
+}

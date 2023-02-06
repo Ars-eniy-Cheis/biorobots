@@ -1,6 +1,6 @@
 .accessories {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 0px;
     justify-content: space-between;
     inline-size: min-content;
@@ -10,6 +10,7 @@
 .accessorie {
     text-align: center;
     margin-right: 30px;
+
 }
 
 .accessorie-name {

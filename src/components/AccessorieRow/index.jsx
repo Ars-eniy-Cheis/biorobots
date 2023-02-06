@@ -4,7 +4,7 @@ import biohand from '../../assets/icons/biohand.png';
 
 import Accessorie from '../Accessorie';
 
-import '../../assets/styles/Accessorie.scss';
+import '../../assets/styles/accessorie.scss';
 
 const AccessorieRow = (props) => {
 
