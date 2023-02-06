@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
@@ -7,6 +7,7 @@ import IconRow from '../IconRow';
 import FactoryImage from '../FactoryImage';
 
 import robotStore from '../../store/RobotStore';
+import DetailIconRowStore from '../../store/DetailIconRowStore';
 
 import declination from '../../utils/declination'
 
@@ -42,6 +43,19 @@ import '../../assets/styles/Factory.scss';
 
 const Factory = observer((props) => {
 
+    const didMount = useRef(false);
+/*
+    useEffect(() => {
+        if (!didMount.current) {
+            for(let i = 0; i < props.iconRowQuantity; i++){
+                console.log("mount")
+                detailIconRowStore.addRowDetailIconState([]);
+                detailIconRowStore.addRowDetailIconImage([]);
+            }
+        }
+
+    }, []);
+*/
     const imageHandler = () => {
         if (typeof robotStore.robotType !== 'undefined' && typeof robotStore.robotStabilizator !== 'undefined') {
             if (robotStore.robotType) {
@@ -105,16 +119,19 @@ const Factory = observer((props) => {
                         iconQuantity={4}
                         iconKit={[biohandNormal, biohandActive, biohandDisable]}
                         partQuantity={props.partsQuantity[0]}
+                        detailIconRowStore={new DetailIconRowStore()}
                     />
                     <IconRow
                         iconQuantity={4}
                         iconKit={[chipNormal, chipActive, chipDisable]}
                         partQuantity={props.partsQuantity[1]}
+                        detailIconRowStore={new DetailIconRowStore()}
                     />
                     <IconRow
                         iconQuantity={1}
                         iconKit={[soulNormal, soulActive, soulDisable]}
                         partQuantity={props.partsQuantity[2]}
+                        detailIconRowStore={new DetailIconRowStore()}
                     />
                     <div className='chooser-label'>
                         Для производства робота не хватает

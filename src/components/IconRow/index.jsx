@@ -2,8 +2,6 @@ import { observer } from 'mobx-react-lite';
 
 import ClickableImage from '../ClickableImage';
 
-import DetailIconStore from '../../store/DetailIconStore';
-
 import declination from '../../utils/declination'
 
 import '../../assets/styles/iconRow.scss'
@@ -11,53 +9,75 @@ import { useEffect, useRef } from 'react';
 
 const IconRow = observer((props) => {
 
-    const didMount = useRef(false);
-
     useEffect(() => {
-        if (!didMount.current) {
-
+        for (let i = 0; i < props.iconQuantity; i++) {
+            if (i < props.partQuantity) {
+                props.detailIconRowStore.addDetailIconImage(props.iconKit[0]);
+                props.detailIconRowStore.addDetailIconState(false);
+            }
+            else {
+                props.detailIconRowStore.addDetailIconImage(props.iconKit[2]);
+                props.detailIconRowStore.addDetailIconState(undefined);
+            }
+            if (props.partQuantity === 0) {
+                props.detailIconRowStore.addDetailIconImage(props.iconKit[2]);
+                props.detailIconRowStore.addDetailIconState(undefined);
+            }
         }
 
-    }, []);
+    }, [props.detailIconRowStore.detailIconState]);
 
-    const onClickImageHandler = (detailIconImageHandler, detailIconStateHandler, value) => {
+    const onClickImageHandler = (detailIconImageHandler, detailIconStateHandler, value, index) => {
+        console.log(value);
         if (typeof value !== 'undefined') {
-            console.log(value);
-            detailIconImageHandler(props.iconKit[1]);
-            detailIconStateHandler(!value);
+            if (!value) {
+                detailIconImageHandler(index, props.iconKit[1]);
+            }
+            else {
+                detailIconImageHandler(index, props.iconKit[0]);
+            }
+            detailIconStateHandler(index, !value);
+
         }
     }
 
     let icons = [];
 
-    let detailIconsStore = [];
-
     for (let i = 0; i < props.iconQuantity; i++) {
-        if (i < props.partQuantity) {
-            detailIconsStore.push(new DetailIconStore())
-            detailIconsStore[i].setDetailIconImage(props.iconKit[0]);
-            detailIconsStore[i].setdetailIconState(false);
+        if (props.detailIconRowStore.detailIconState[i] && typeof props.detailIconRowStore.detailIconState[i] !== 'undefined') {
+            icons.push(<ClickableImage
+                imageIconHandler={props.detailIconRowStore.setDetailIconImage}
+                imageStateHandler={props.detailIconRowStore.setDetailIconState}
+                onClick={onClickImageHandler}
+                state={props.detailIconRowStore.detailIconState[i]}
+                src={props.detailIconRowStore.detailIconImage[i]}
+                index={i}
+                className='icon'
+            />)
+        }
+        else if (props.detailIconRowStore.detailIconState[i] !== 'undefined') {
+            icons.push(<ClickableImage
+                imageIconHandler={props.detailIconRowStore.setDetailIconImage}
+                imageStateHandler={props.detailIconRowStore.setDetailIconState}
+                onClick={onClickImageHandler}
+                state={props.detailIconRowStore.detailIconState[i]}
+                src={props.detailIconRowStore.detailIconImage[i]}
+                index={i}
+                className='icon'
+            />)
         }
         else {
-            detailIconsStore.push(new DetailIconStore())
-            detailIconsStore[i].setDetailIconImage(props.iconKit[2]);
-            detailIconsStore[i].setdetailIconState(undefined);
+            icons.push(<ClickableImage
+                imageIconHandler={props.detailIconRowStore.setDetailIconImage}
+                imageStateHandler={props.detailIconRowStore.setDetailIconState}
+                onClick={onClickImageHandler}
+                state={props.detailIconRowStore.detailIconState[i]}
+                src={props.detailIconRowStore.detailIconImage[i]}
+                index={i}
+                className='icon'
+            />)
         }
     }
-
-    for (let i = 0; i < props.iconQuantity; i++) {
-        if (detailIconsStore[i].detailIconState && typeof detailIconsStore[i].detailIconState !== 'undefined') {
-            icons.push(<ClickableImage imageIconHandler={detailIconsStore[i].setDetailIconImage} imageStateHandler={detailIconsStore[i].setdetailIconState} onClick={onClickImageHandler} state={detailIconsStore[i].detailIconState} src={detailIconsStore[i].detailIconImage} id={'true' + i} className='icon' />)
-        }
-        else if (detailIconsStore[i].detailIconState !== 'undefined') {
-            icons.push(<ClickableImage imageIconHandler={detailIconsStore[i].setDetailIconImage} imageStateHandler={detailIconsStore[i].setdetailIconState} onClick={onClickImageHandler} state={detailIconsStore[i].detailIconState} src={detailIconsStore[i].detailIconImage} id={'false' + i} className='icon' />)
-        }
-        else {
-            icons.push(<ClickableImage imageIconHandler={detailIconsStore[i].setDetailIconImage} imageStateHandler={detailIconsStore[i].setdetailIconState} onClick={onClickImageHandler} state={detailIconsStore[i].detailIconState} src={detailIconsStore[i].detailIconImage} id={'undefine' + i} className='icon' />)
-        }
-    }
-
-
 
     return (
         <div className='icon-row'>

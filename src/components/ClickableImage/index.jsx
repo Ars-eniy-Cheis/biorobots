@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 
 const ClickableImage = observer((props) => {
 
-    let image = (<img alt='icon' onClick={() => { props.onClick(props.imageIconHandler, props.imageStateHandler, props.state) }} src={props.src} className={props.className} id={props.id} />);
+    let image = (<img alt='icon' onClick={() => { props.onClick(props.imageIconHandler, props.imageStateHandler, props.state, props.index) }} src={props.src} className={props.className} />);
 
     return (
         <div>

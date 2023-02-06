@@ -102,6 +102,7 @@ const MainPage = observer((props) => {
         </div>
         <Factory
           partsQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
+          iconRowQuantity={3}
         />
       </div>
     </div>
