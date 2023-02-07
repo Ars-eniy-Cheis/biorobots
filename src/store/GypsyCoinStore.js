@@ -2,7 +2,7 @@ import { makeObservable, observable, action, computed } from "mobx"
 class GypsyCoinStore {
 
     maxCoins = 100;
-    coinQuantity = 45;
+    coinQuantity = 0;
     gypsyingCoins = 5;
     isCheked = false;
 

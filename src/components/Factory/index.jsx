@@ -5,90 +5,104 @@ import { observer } from 'mobx-react-lite';
 import FactoryChooser from '../FactoryChooser';
 import IconRow from '../IconRow';
 import FactoryImage from '../FactoryImage';
+import Button from '../Inputs/Button';
 
 import robotStore from '../../store/RobotStore';
-import DetailIconRowStore from '../../store/DetailIconRowStore';
+import productionStatusStore from '../../store/ProductionStatusStore';
 
-import declination from '../../utils/declination'
+import { productionProsperity } from '../../utils/declination'
 
-import biohandNormal from '../../assets/icons/biohand-normal.png';
-import biohandActive from '../../assets/icons/biohand-active.png';
-import biohandDisable from '../../assets/icons/biohand-disable.png';
-
-import chipNormal from '../../assets/icons/chip-normal.png';
-import chipActive from '../../assets/icons/chip-active.png';
-import chipDisable from '../../assets/icons/chip-disable.png';
-
-import soulNormal from '../../assets/icons/soul-normal.png';
-import soulActive from '../../assets/icons/soul-normal.png';
-import soulDisable from '../../assets/icons/soul-normal.png';
-
-import designFemaleActive from '../../assets/icons/robots/design-female-active.png'
-import designFemaleDisable from '../../assets/icons/robots/design-female-disable.png'
-import designFemaleNormal from '../../assets/icons/robots/design-female-normal.png'
-
-import designMaleActive from '../../assets/icons/robots/design-male-active.png'
-import designMaleDisable from '../../assets/icons/robots/design-male-disable.png'
-import designMaleNormal from '../../assets/icons/robots/design-male-normal.png'
-
-import frontEndFemaleActive from '../../assets/icons/robots/front-end-female-active.png'
-import frontEndFemaleDisable from '../../assets/icons/robots/front-end-female-disable.png'
-import frontEndFemaleNormal from '../../assets/icons/robots/front-end-female-normal.png'
-
-import frontEndMaleActive from '../../assets/icons/robots/front-end-male-active.png'
-import frontEndMaleDisable from '../../assets/icons/robots/front-end-male-disable.png'
-import frontEndMaleNormal from '../../assets/icons/robots/front-end-male-normal.png'
+import {
+    biohandNormal,
+    biohandActive,
+    biohandDisable,
+    chipNormal,
+    chipActive,
+    chipDisable,
+    soulNormal,
+    soulActive,
+    soulDisable,
+    designFemaleActive,
+    designFemaleDisable,
+    designFemaleNormal,
+    designMaleActive,
+    designMaleDisable,
+    designMaleNormal,
+    frontEndFemaleActive,
+    frontEndFemaleDisable,
+    frontEndFemaleNormal,
+    frontEndMaleActive,
+    frontEndMaleDisable,
+    frontEndMaleNormal,
+} from '../../assets/icons'
 
 import '../../assets/styles/Factory.scss';
 
-const Factory = observer((props) => {
-
-    const didMount = useRef(false);
-/*
-    useEffect(() => {
-        if (!didMount.current) {
-            for(let i = 0; i < props.iconRowQuantity; i++){
-                console.log("mount")
-                detailIconRowStore.addRowDetailIconState([]);
-                detailIconRowStore.addRowDetailIconImage([]);
-            }
+const robots = {
+    true: {
+        true: {
+            normal: frontEndMaleNormal,
+            disable: frontEndMaleDisable,
+            active: frontEndMaleActive,
+        },
+        false: {
+            normal: frontEndFemaleNormal,
+            disable: frontEndFemaleDisable,
+            active: frontEndFemaleActive,
         }
-
-    }, []);
-*/
-    const imageHandler = () => {
-        if (typeof robotStore.robotType !== 'undefined' && typeof robotStore.robotStabilizator !== 'undefined') {
-            if (robotStore.robotType) {
-                if (robotStore.robotStabilizator) {
-                    robotStore.setRobotImage(frontEndMaleActive);
-                    console.log('image: frontEndMaleActive');
-                }
-                else {
-                    robotStore.setRobotImage(frontEndFemaleActive);
-                    console.log('image: frontEndFemaleActive');
-                }
-            }
-            else {
-                if (robotStore.robotStabilizator) {
-                    robotStore.setRobotImage(designMaleActive);
-                    console.log('image: designMaleActive');
-                }
-                else {
-                    robotStore.setRobotImage(designFemaleActive);
-                    console.log('image: designFemaleActive');
-                }
-            }
+    },
+    false: {
+        true: {
+            normal: designMaleNormal,
+            disable: designMaleDisable,
+            active: designMaleActive,
+        },
+        false: {
+            normal: designFemaleNormal,
+            disable: designFemaleDisable,
+            active: designFemaleActive,
         }
     }
+}
+
+const Factory = observer((props) => {
 
     useEffect(() => {
         if (typeof robotStore.robotType !== 'undefined' && typeof robotStore.robotStabilizator !== 'undefined') {
             imageHandler();
         }
-    }, [robotStore.robotType, robotStore.robotStabilizator]);
+    }, [robotStore.robotType, robotStore.robotStabilizator, JSON.stringify(props.detailIconRowStores)]);
+
+    const imageHandler = () => {
+        let storesStates =
+            props.detailIconRowStores.map((item, index) => {
+                return item.detailIconState.every(v => v === true)
+            })
+
+        productionStatusStore.setProductionStatus(storesStates.every(item => item === true) ? 'normal' : 'disable');
+        robotStore.setRobotImage(robots[robotStore.robotType][robotStore.robotStabilizator][productionStatusStore.productionStatus]);
+    }
+
+    const producingHandler = () => {
+        productionStatusStore.setProductionStatus('active');
+        robotStore.setRobotImage(robots[robotStore.robotType][robotStore.robotStabilizator][productionStatusStore.productionStatus]);
+    }
+
+    const iconRows = []
+
+    for (let i = 0; i < props.iconRowQuantity; i++) {
+        iconRows.push(
+            <IconRow
+                iconQuantity={props.iconQuantities[i]}
+                iconKit={props.iconKits[i]}
+                partQuantity={props.partsQuantity[i]}
+                detailIconRowStore={props.detailIconRowStores[i]}
+            />
+        )
+    }
 
     return (
-        <div className='factory'>
+        <section id={props.sectionId} className='factory'>
             <h2>
                 Производство
             </h2>
@@ -112,29 +126,17 @@ const Factory = observer((props) => {
                         chooserName={'name2'}
                         chooserHandler={robotStore.setRobotStabilizator}
                     />
-                    <button className='market-button'>Произвести за 10 монет</button>
+                    <Button
+                        title={'Произвести за 10 монет'}
+                        disabled={productionStatusStore.productionStatus == 'disable' ? true : false}
+                        className={'market-button'}
+                        onClick={producingHandler}
+                    />
                 </div>
                 <div className='factory-item'>
-                    <IconRow
-                        iconQuantity={4}
-                        iconKit={[biohandNormal, biohandActive, biohandDisable]}
-                        partQuantity={props.partsQuantity[0]}
-                        detailIconRowStore={new DetailIconRowStore()}
-                    />
-                    <IconRow
-                        iconQuantity={4}
-                        iconKit={[chipNormal, chipActive, chipDisable]}
-                        partQuantity={props.partsQuantity[1]}
-                        detailIconRowStore={new DetailIconRowStore()}
-                    />
-                    <IconRow
-                        iconQuantity={1}
-                        iconKit={[soulNormal, soulActive, soulDisable]}
-                        partQuantity={props.partsQuantity[2]}
-                        detailIconRowStore={new DetailIconRowStore()}
-                    />
+                    {iconRows}
                     <div className='chooser-label'>
-                        Для производства робота не хватает
+                        {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа' , 'души' , 'монеты'])}
                     </div>
                 </div>
                 <div className='factory-item'>
@@ -144,7 +146,7 @@ const Factory = observer((props) => {
                     />
                 </div>
             </div>
-        </div>
+        </section>
     );
 })
 

@@ -1,7 +1,7 @@
 
 import { observer } from 'mobx-react-lite';
 
-import declination from '../../utils/declination'
+import { declination } from '../../utils/declination'
 
 import coin from '../../assets/icons/coin.png';
 
@@ -9,8 +9,14 @@ import '../../assets/styles/Wallet.scss';
 
 const Wallet = observer((props) => {
 
+    let additionalQuantity = 1;
+
+    if (props.gypsyCoinStore.isCheked) {
+        additionalQuantity = props.gypsyCoinStore.gypsyingCoins;
+    }
+
     const gypsy = () => {
-        if (props.gypsyCoinStore.coinQuantity + props.gypsyCoinStore.gypsyingCoins <= props.gypsyCoinStore.maxCoins) {
+        if (props.gypsyCoinStore.coinQuantity + additionalQuantity <= props.gypsyCoinStore.maxCoins) {
             if (props.gypsyCoinStore.isCheked) {
                 props.gypsyCoinStore.incrementCoinQuantity(props.gypsyCoinStore.gypsyingCoins)
             }

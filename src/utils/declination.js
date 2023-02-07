@@ -7,7 +7,25 @@ function declination(quantity, declinations) {
     return declinations[0];
 }
 
-export default declination;
+//Что поступает: 1) Массив с тем сколько есть деталей и монет 2) Массив с тем сколько нужно деталей и монет 3) Массив с названиями деталей
+function productionProsperity(detailsQuantity, requiredDetailsQuantity, detailsName) {
+    const details = [];
+
+    detailsQuantity.forEach((element, index) => {
+        let difference = element - requiredDetailsQuantity[index];
+        if (difference < 0) {
+            details.push(Math.abs(difference).toString() + ` ${detailsName[index]}`)
+        }
+    });
+
+    let res = [details.slice(0, details.length - 1).join(', '), details[details.length - 1]].join(' и ');
+
+    return details.length 
+            ? "Не хватает " + (details.length == 1 ? details[0] : res)
+            : "Всего хватает";
+}
+
+export { declination, productionProsperity };
 
 /*
 

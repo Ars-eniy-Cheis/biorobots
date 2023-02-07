@@ -23,17 +23,14 @@ class RobotStore {
 
     setRobotType(value) {
         this.robotType = value;
-        console.log('Type: ' + this.robotType);
     }
 
     setRobotStabilizator(value) {
         this.robotStabilizator = value;
-        console.log('Stabilizator: ' + this.robotStabilizator);
     }
 
     setRobotImage(value) {
         this.robotImage = value;
-        console.log('Image: ' + this.robotImage);
     }
 
     setRobotAlt(value) {

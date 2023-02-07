@@ -1,7 +1,13 @@
+import Button from '../Inputs/Button';
+
+import scrollTo from '../../utils/scrollTo';
+
 import '../../assets/styles/Header.scss';
 import '../../assets/styles/HeaderButton.scss'
 
-function Header() {
+function Header(props) {
+
+    const clickHandle = () => scrollTo({ id: props.toSection });
     return (
         <header>
             <div className='header-wrapper'>
@@ -11,7 +17,11 @@ function Header() {
                     <div className='dot' />
                     <div className='dot' />
                 </div>
-                <button className='header-button'> Произвести биоробота </button>
+                <Button
+                    className='header-button'
+                    title='Произвести биоробота'
+                    onClick={clickHandle}
+                />
             </div>
         </header>
     );

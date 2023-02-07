@@ -25,12 +25,10 @@ class DetailIconRowStore {
     }
 
     setDetailIconState(index, value) {
-        console.log("setDetailIconState: " + index);
         this.detailIconState[index] = value;
     }
 
     setDetailIconImage(index, value) {
-        console.log("setDetailIconImage: " + index);
         this.detailIconImage[index] = value;
     }
 }
