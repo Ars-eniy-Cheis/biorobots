@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
@@ -6,22 +6,16 @@ import FactoryChooser from '../FactoryChooser';
 import IconRow from '../IconRow';
 import FactoryImage from '../FactoryImage';
 import Button from '../Inputs/Button';
+import ModalWindow from '../ModalWindow'
 
 import robotStore from '../../store/RobotStore';
 import productionStatusStore from '../../store/ProductionStatusStore';
 
 import { productionProsperity } from '../../utils/declination'
 
+import '../../assets/styles/Factory.scss';
+
 import {
-    biohandNormal,
-    biohandActive,
-    biohandDisable,
-    chipNormal,
-    chipActive,
-    chipDisable,
-    soulNormal,
-    soulActive,
-    soulDisable,
     designFemaleActive,
     designFemaleDisable,
     designFemaleNormal,
@@ -35,8 +29,6 @@ import {
     frontEndMaleDisable,
     frontEndMaleNormal,
 } from '../../assets/icons'
-
-import '../../assets/styles/Factory.scss';
 
 const robots = {
     true: {
@@ -73,17 +65,19 @@ const Factory = observer((props) => {
         }
     }, [robotStore.robotType, robotStore.robotStabilizator, JSON.stringify(props.detailIconRowStores)]);
 
+    const [modalWindowActive, setModalWindowActive] = useState(false)
+
     const imageHandler = () => {
         let storesStates =
             props.detailIconRowStores.map((item, index) => {
                 return item.detailIconState.every(v => v === true)
             })
-
         productionStatusStore.setProductionStatus(storesStates.every(item => item === true) ? 'normal' : 'disable');
         robotStore.setRobotImage(robots[robotStore.robotType][robotStore.robotStabilizator][productionStatusStore.productionStatus]);
     }
 
     const producingHandler = () => {
+        setModalWindowActive(true);
         productionStatusStore.setProductionStatus('active');
         robotStore.setRobotImage(robots[robotStore.robotType][robotStore.robotStabilizator][productionStatusStore.productionStatus]);
     }
@@ -136,7 +130,7 @@ const Factory = observer((props) => {
                 <div className='factory-item'>
                     {iconRows}
                     <div className='chooser-label'>
-                        {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа' , 'души' , 'монеты'])}
+                        {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа', 'души', 'монеты'])}
                     </div>
                 </div>
                 <div className='factory-item'>
@@ -146,6 +140,14 @@ const Factory = observer((props) => {
                     />
                 </div>
             </div>
+            <ModalWindow active={modalWindowActive} setActive={setModalWindowActive}>
+                <h2 className='modal-window-text modal-window-title'> Биоробот произведён </h2>
+                <h3 className='sub-title modal-window-text modal-window-sub-title'>
+                    Поздравляем!
+                    <br />
+                    Вы произвели биоробота
+                </h3>
+            </ModalWindow>
         </section>
     );
 })

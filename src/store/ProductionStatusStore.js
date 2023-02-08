@@ -8,7 +8,7 @@ const _statuses = {
 
 class ProductionStatusStore {
 
-    productionStatus = undefined;
+    productionStatus = 'disable';
 
     constructor() {
         makeObservable(this, {

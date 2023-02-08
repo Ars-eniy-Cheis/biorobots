@@ -1,4 +1,7 @@
 import '../../../assets/styles/HeaderButton.scss'
+import '../../../assets/styles/MarketButton.scss';
+import '../../../assets/styles/StorageButton.scss';
+import '../../../assets/styles/crossButton.scss';
 
 function Button(props) {
 

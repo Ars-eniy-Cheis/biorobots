@@ -1,7 +1,5 @@
 import { observer } from 'mobx-react-lite';
 
-import biohand from '../../assets/icons/biohand.png';
-
 import Accessorie from '../Accessorie';
 
 import '../../assets/styles/accessorie.scss';

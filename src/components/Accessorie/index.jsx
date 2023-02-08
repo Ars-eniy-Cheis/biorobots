@@ -1,20 +1,14 @@
-import { observer } from 'mobx-react-lite';
+import Button from '../Inputs/Button';
 
 import { declination } from '../../utils/declination';
 
-import biohand from '../../assets/icons/biohand.png';
-
-import '../../assets/styles/MarketButton.scss';
-import '../../assets/styles/StorageButton.scss';
-
 const Accessorie = (props) => {
-    let image = (<img alt='' className='accessorie-empty-image' />);
 
+    let image = (<img alt='' className='accessorie-empty-image' />);
     if (typeof props.picture !== 'object') {
         image = (<img src={props.picture} alt={props.pictureAlt} className='accessorie-image' />);
     }
 
-    let disabled = false;
     let accessorieQuantity = (<div />);
     if (typeof props.accessorieQuantity !== 'object') {
         accessorieQuantity = (<div className={props.accessorieNameStyle}> {props.accessorieQuantity} шт. </div>)
@@ -22,6 +16,8 @@ const Accessorie = (props) => {
             disabled = true;
         }
     }
+
+    let disabled = false;
 
     return (
         <div className='accessorie'>
@@ -33,7 +29,12 @@ const Accessorie = (props) => {
                 Стоимость: {props.price} {declination(props.price, ['монета', 'монеты', 'монет'])}
             </div>
             {accessorieQuantity}
-            <button disabled={disabled} className={props.buttonStyle} onClick={() => props.buttonHandler[0](props.price, props.accessorieQuantity, props.buttonHandler[1])}>{props.buttonActionName}</button>
+            <Button
+                disabled={disabled}
+                className={props.buttonStyle}
+                onClick={() => props.buttonHandler[0](props.price, props.accessorieQuantity, props.buttonHandler[1])}
+                title={props.buttonActionName}
+            />
         </div>
     );
 }

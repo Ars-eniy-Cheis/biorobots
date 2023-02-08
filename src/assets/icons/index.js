@@ -1,18 +1,21 @@
-import biohand from './biohand.png';
-import chip from './chip.png';
-import soul from './soul.png';
+import coin from './coin.png';
+import pacMan from './pac-man.png';
 
-import biohandNormal from './biohand-normal.png';
-import biohandActive from './biohand-active.png';
-import biohandDisable from './biohand-disable.png';
+import biohand from './parts/biohand.png';
+import chip from './parts/chip.png';
+import soul from './parts/soul.png';
 
-import chipNormal from './chip-normal.png';
-import chipActive from './chip-active.png';
-import chipDisable from './chip-disable.png';
+import biohandNormal from './parts/biohand-normal.png';
+import biohandActive from './parts/biohand-active.png';
+import biohandDisable from './parts/biohand-disable.png';
 
-import soulNormal from './soul-normal.png';
-import soulActive from './soul-active.png';
-import soulDisable from './soul-disable.png';
+import chipNormal from './parts/chip-normal.png';
+import chipActive from './parts/chip-active.png';
+import chipDisable from './parts/chip-disable.png';
+
+import soulNormal from './parts/soul-normal.png';
+import soulActive from './parts/soul-active.png';
+import soulDisable from './parts/soul-disable.png';
 
 import designFemaleActive from './robots/design-female-active.png'
 import designFemaleDisable from './robots/design-female-disable.png'
@@ -31,6 +34,8 @@ import frontEndMaleDisable from './robots/front-end-male-disable.png'
 import frontEndMaleNormal from './robots/front-end-male-normal.png'
 
 export {
+    coin,
+    pacMan,
     biohand,
     chip,
     soul,

@@ -26,29 +26,8 @@ header {
     }
 }
 
-.pac-man-logo {
-    display: flex;
-}
-
 .pac-man {
-    font-size: 10px;
-    width: 8em;
-    height: 8em;
-    background:
-        linear-gradient($r 0%, $rT 100%) 100% 100% / 4em 4em,
-        radial-gradient(8em 8em at 50% 50%, $o 49%, $oT 50%);
-    transform: rotate(-45deg);
-    background-repeat: no-repeat;
-}
-
-.dot {
-    //    outline: 1px solid #aaa;
-    margin-left: -1em;
-    font-size: 10px;
-    width: 4em;
-    height: 8em;
-    background:
-        radial-gradient(2.5em 2.5em at 50% 50%, $o 38%, $oT 40%);
-    background-repeat: no-repeat;
-    z-index: 10;
+    object-fit: cover;
+    width: auto;
+    height: auto;
 }
