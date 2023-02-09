@@ -1,5 +1,11 @@
 import coin from './coin.png';
 import pacMan from './pac-man.png';
+import logo from './logo.png'
+
+import radioButtonNormal from './radioButton/normal.png';
+import radioButtonHover from './radioButton/hover.png';
+import radioButtonActive from './radioButton/active.png';
+import radioButtonDisable from './radioButton/disable.png';
 
 import biohand from './parts/biohand.png';
 import chip from './parts/chip.png';
@@ -34,6 +40,11 @@ import frontEndMaleDisable from './robots/front-end-male-disable.png'
 import frontEndMaleNormal from './robots/front-end-male-normal.png'
 
 export {
+    logo,
+    radioButtonNormal,
+    radioButtonHover,
+    radioButtonActive,
+    radioButtonDisable,
     coin,
     pacMan,
     biohand,

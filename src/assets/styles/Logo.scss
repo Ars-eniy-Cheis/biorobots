@@ -5,11 +5,19 @@ $dark-blueT: rgba(255, 128, 0, 0);
     padding-left: 0%;
     padding-right: 0%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    //grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    //height: 100vh;
 }
 
-.robots {
-    display: flex;
+.logo-image-wraper{
+
+}
+
+.logo-image {
+    height: auto;
+    width: 100%;
+    max-width: max-content;
 }
 
 .big-robot {

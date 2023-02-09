@@ -11,6 +11,7 @@
 .factory-item {
     margin-right: 30px;
     width: 270px;
+    position: relative;
 }
 
 .chooser-title {
@@ -30,21 +31,11 @@
     margin-top: 0px;
     margin-right: 10px;
     cursor: pointer;
-
 }
 
-.chooser-label {
-    cursor: pointer;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    color: #FFFFFF;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    
+.factory-modal-wrap {
+    padding: 20px 5vw 20px 5vw;
+    //width: 480px;
 }
 
 .chooser-union {
@@ -54,11 +45,72 @@
     justify-content: space-between;
 }
 
-.chooser-label::before {
-    content: '';
-    background: transparent;
+.chooser-label {
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #A3B8CC;
+    font-family: 'Montserrat';
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    position: absolute;
+    margin-bottom: 65px;
+    bottom: 0;
 }
 
-.chooser-radio-button:checked+label {
-    background: #FF7F22;
+.chooser {
+    margin-bottom: 0px;
+}
+
+.chooser input[type=radio] {
+    vertical-align: bottom;
+    display: none;
+}
+
+.chooser label {
+    vertical-align: bottom;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+    margin-right: 0;
+    line-height: 40px;
+    user-select: none;
+}
+
+.chooser label:before {
+
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background: url(../../assets/icons/radioButton/normal.png) 0 0 no-repeat;
+
+}
+
+.chooser input[type=radio]:checked+label:before {
+    background: url(../../assets/icons/radioButton/active.png) 0 0 no-repeat;
+}
+
+.chooser label:hover:before {
+    background: url(../../assets/icons/radioButton/hover.png) 0 0 no-repeat;
+}
+
+.chooser input[type=radio]:disabled+label:before {
+    background: url(../../assets/icons/radioButton/disable.png) 0 0 no-repeat;
+}
+
+.radio-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
 }

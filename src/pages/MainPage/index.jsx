@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
 
-import Header from '../../components/Header'
-import Logo from '../../components/Logo'
-import Wallet from '../../components/Wallet'
-import AccessorieRow from '../../components/AccessorieRow'
-import Factory from '../../components/Factory';
+import Header from '../../components/Sections/Header'
+import Logo from '../../components/Sections/Logo'
+import Wallet from '../../components/Sections/Wallet'
+import AccessorieRow from '../../components/Sections/AccessorieRow'
+import Factory from '../../components/Sections/Factory';
 
 import gypsyCoinStore from '../../store/GypsyCoinStore';
 import storageStore from '../../store/StorageStore';
@@ -31,25 +31,25 @@ import '../../assets/styles/Common.scss';
 /*
 Вынести в отдельный компонент:
 
-1) Чек-бокс
-2) Кнопку
-3) Радио-баттан
-4) Картинку
-5) Картинку на фабрике
+1) Чек-бокс ✅
+2) Кнопку ✅
+3) Радио-баттан ✅
+4) Картинку ✅
+5) иконки с деталямим на фабрике ✅
 
 Изменить отображение: 
-1) Пак-мана
-2) Чек-бокса
-3) Радио-баттана
+1) Пак-мана ✅
+2) Чек-бокса ✅
+3) Радио-баттана ✅
 
 Наложить логику на:
-1) Чек-бокс и кнопку нацыганивания монет
-2) Радио-баттоны
-3) Иконки на фабрике
-4) Картинку робота на фабрике
+1) Чек-бокс и кнопку нацыганивания монет ✅
+2) Радио-баттоны ✅
+3) Иконки на фабрике ✅
+4) Картинку робота на фабрике ✅
 
 Создать функци:
-1) Выдающую текст, в зависимости от того, каких компонентов не хватает
+1) Выдающую текст, в зависимости от того, каких компонентов не хватает ✅
 
 в css объеденить все повторяющиеся элементы
 
@@ -93,40 +93,44 @@ const MainPage = observer((props) => {
         />
         <Wallet
           sectionId={sections[2]}
-          gypsyCoinStore={gypsyCoinStore}
+          maxCoins={gypsyCoinStore.maxCoins}
+          coinQuantity={gypsyCoinStore.coinQuantity}
+          gypsyingCoins={gypsyCoinStore.gypsyingCoins}
+          isCheked={gypsyCoinStore.isCheked}
+          incrementCoinQuantity={gypsyCoinStore.incrementCoinQuantity}
+          decrementCoinQuantity={gypsyCoinStore.decrementCoinQuantity}
+          check={gypsyCoinStore.check}
         />
-        <div>
-          <AccessorieRow
-            sectionId={sections[3]}
-            rowName={'Рынок комплектующих'}
-            quantity={accessoriesQuantityInRow}
-            pictures={[biohand, chip, soul]}
-            picturesAlt={['Biohand', 'Chip', 'Soul']}
-            accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
-            accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
-            accessoriesQuantity={[{}, {}, {}]}
-            buttonStyles={['market-button', 'market-button', 'market-button']}
-            buttonActionsNames={['Установить', 'Установить', 'Установить']}
-            buttonHandlers={[[buyHandler, storageStore.incrementBiohandQuantity], [buyHandler, storageStore.incrementChipQuantity], [buyHandler, storageStore.incrementSoulQuantity]]}
-            accessorieNames={['Биорука', 'Микрочип', 'Душа']}
-            accessoriePrices={[storageStore.biohandBuyPrice, storageStore.chipBuyPrice, storageStore.soulBuyPrice]}
-          />
-          <AccessorieRow
-            sectionId={sections[4]}
-            rowName={'Склад'}
-            quantity={accessoriesQuantityInRow}
-            pictures={[{}, {}, {}]}
-            picturesAlt={['Biohand', 'Chip', 'Soul']}
-            accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
-            accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
-            accessoriesQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
-            buttonStyles={['storage-button', 'storage-button', 'storage-button']}
-            buttonActionsNames={['Продать', 'Продать', 'Продать']}
-            buttonHandlers={[[sellHandler, storageStore.decrementBiohandQuantity], [sellHandler, storageStore.decrementChipQuantity], [sellHandler, storageStore.decrementSoulQuantity]]}
-            accessorieNames={['Биорука', 'Микрочип', 'Душа']}
-            accessoriePrices={[storageStore.biohandSellPrice, storageStore.chipSellPrice, storageStore.soulSellPrice]}
-          />
-        </div>
+        <AccessorieRow
+          sectionId={sections[3]}
+          rowName={'Рынок комплектующих'}
+          quantity={accessoriesQuantityInRow}
+          pictures={[biohand, chip, soul]}
+          picturesAlt={['Biohand', 'Chip', 'Soul']}
+          accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
+          accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
+          accessoriesQuantity={[{}, {}, {}]}
+          buttonStyles={['market-button', 'market-button', 'market-button']}
+          buttonActionsNames={['Установить', 'Установить', 'Установить']}
+          buttonHandlers={[[buyHandler, storageStore.incrementBiohandQuantity], [buyHandler, storageStore.incrementChipQuantity], [buyHandler, storageStore.incrementSoulQuantity]]}
+          accessorieNames={['Биорука', 'Микрочип', 'Душа']}
+          accessoriePrices={[storageStore.biohandBuyPrice, storageStore.chipBuyPrice, storageStore.soulBuyPrice]}
+        />
+        <AccessorieRow
+          sectionId={sections[4]}
+          rowName={'Склад'}
+          quantity={accessoriesQuantityInRow}
+          pictures={[{}, {}, {}]}
+          picturesAlt={['Biohand', 'Chip', 'Soul']}
+          accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
+          accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
+          accessoriesQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
+          buttonStyles={['storage-button', 'storage-button', 'storage-button']}
+          buttonActionsNames={['Продать', 'Продать', 'Продать']}
+          buttonHandlers={[[sellHandler, storageStore.decrementBiohandQuantity], [sellHandler, storageStore.decrementChipQuantity], [sellHandler, storageStore.decrementSoulQuantity]]}
+          accessorieNames={['Биорука', 'Микрочип', 'Душа']}
+          accessoriePrices={[storageStore.biohandSellPrice, storageStore.chipSellPrice, storageStore.soulSellPrice]}
+        />
         <Factory
           sectionId={sections[5]}
           partsQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
