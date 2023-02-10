@@ -6,8 +6,8 @@ import { logo } from '../../../assets/icons';
 
 const Logo = () => {
     return (
-        <section className='grid logo-grid'>
-            <div>
+        <section className='main-grid'>
+            <div className='logo-grid-title'>
                 <h1>
                     Фабрика по производству биороботов
                 </h1>
@@ -15,7 +15,7 @@ const Logo = () => {
                     класса «монитор-кресло»
                 </h3>
             </div>
-            <div className='logo-image-wraper'>
+            <div className='logo-grid-image'>
                 <Image
                     className='logo-image'
                     src={logo}

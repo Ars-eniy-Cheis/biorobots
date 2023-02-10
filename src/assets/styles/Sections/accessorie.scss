@@ -3,7 +3,7 @@
 }
 
 .accessorie {
-    text-align: center;
+    
     margin-right: 30px;
 }
 
@@ -24,4 +24,14 @@
 .accessorie-image-wrapper {
     position: relative;
     padding-top: 56.25%;
+}
+
+.accessories-grid {
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.accessorie-grid {
+    text-align: center;
+    grid-column: span 2;
 }

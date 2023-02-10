@@ -3,3 +3,14 @@
     //grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     //height: 100vh;
 }
+
+.logo-grid-title {
+    grid-column-start: 2;
+    grid-column-end: 6;
+}
+
+.logo-grid-image {
+    grid-column-start: 6;
+    grid-column-end: 9;
+    
+}

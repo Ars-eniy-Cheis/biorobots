@@ -56,12 +56,14 @@ const Factory = observer((props) => {
     }
 
     return (
-        <section id={props.sectionId} className='factory'>
-            <h2>
-                Производство
-            </h2>
-            <div className='grid factory-items'>
-                <div className='factory-item'>
+        <section id={props.sectionId} className='main-grid'>
+            <div className='factory-grid-title'>
+                <h2>
+                    Производство
+                </h2>
+            </div>
+            <div className='factory-items-grid sub-main-grid'>
+                <div className='factory-item-grid'>
                     <FactoryChooser
                         titleClassName={'chooser-title medium-text'}
                         chooserQuantity={2}
@@ -93,13 +95,13 @@ const Factory = observer((props) => {
                         onClick={producingHandler}
                     />
                 </div>
-                <div className='factory-item'>
+                <div className='factory-item-grid'>
                     {iconRows}
                     <div className='second-text factory-parts-enumeration'>
-                        {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа', 'души', 'монеты'])}
+                        {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа', 'души', 'монет'])}
                     </div>
                 </div>
-                <div className='factory-item'>
+                <div className='factory-item-grid'>
                     <Image
                         src={robotStore.robotImage}
                         alt={robotStore.robotAlt}
@@ -116,7 +118,7 @@ const Factory = observer((props) => {
                         Вы произвели биоробота
                     </h3>
                 </div>
-            </ModalWindow>
+           </ModalWindow>
         </section>
     );
 })

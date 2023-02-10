@@ -1,16 +1,72 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Catamaran-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 body {
     margin: 0;
 }
 
 * {
     font-family: 'Montserrat';
-}
-
-.body-wrap {
-    padding-left: 23%;
-    padding-right: 14%;
-    margin-top: 90px;
-    grid-gap: 100px;
 }
 
 h1 {
@@ -41,14 +97,12 @@ h3 {
 }
 
 .info-text {
-    //color: #FFFFFF;
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;
 }
 
 .text {
-    //color: #A3B8CC;
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
@@ -58,7 +112,6 @@ h3 {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
-    //color: #FFFFFF;
 }
 
 .second-text {
@@ -81,8 +134,27 @@ h3 {
     justify-content: space-between;
 }
 
-.grid-item {
+.body-wrap {
+    //margin-top: 90px;
+    display: grid;
+    grid-gap: 100px;
+    justify-content: space-between;
+    grid-template-rows: repeat(5, 1fr);
+}
 
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    padding-left: 14%;
+    padding-right: 14%;
+    grid-column-gap: 32px;
+    grid-row-gap: 0px;
+}
+
+.sub-main-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 32px;
 }
 
 button {
@@ -93,10 +165,10 @@ button {
     border-radius: 48px;
     text-align: center;
     padding: 12px 18px;
-
 }
 
 .transparent-button {
+    padding: 0;
     background: none;
     border: none;
 }

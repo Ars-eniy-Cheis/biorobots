@@ -1,9 +1,8 @@
 header {
     //position: relative;
-    padding-left: 14%;
-    padding-right: 14%;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    margin-bottom: 90px;
 }
 
 .header-wrapper {
@@ -12,4 +11,15 @@ header {
     align-items: center;
     padding-top: 50;
     padding-bottom: 50;
+}
+
+.header-grid-image {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.header-grid-button {
+    grid-column-start: 7;
+    grid-column-end: 9;
+    
 }

@@ -3,10 +3,6 @@
     color: #FFFFFF;
 }
 
-.chooser {
-    margin-bottom: 0px;
-}
-
 .chooser input[type=radio] {
     vertical-align: bottom;
     display: none;
@@ -18,7 +14,6 @@
     cursor: pointer;
     position: relative;
     padding-left: 40px;
-    margin-right: 0;
     line-height: 40px;
     user-select: none;
 }

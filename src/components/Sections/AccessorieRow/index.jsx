@@ -23,11 +23,13 @@ const AccessorieRow = (props) => {
     }
 
     return (
-        <div className='market'>
-            <h2>
-                {props.rowName}
-            </h2>
-            <div className='grid accessories'>
+        <div className='main-grid'>
+            <div className='accessories-grid'>
+                <h2>
+                    {props.rowName}
+                </h2>
+            </div>
+            <div className='accessories-grid sub-main-grid'>
                 {accessories}
             </div>
         </div>

@@ -4,14 +4,22 @@
     inline-size: max-content;
 }
 
-.factory-item {
-    margin-right: 30px;
-    width: 270px;
-    position: relative;
+.factory-items-grid {
+    grid-column-start: 2;
+    grid-column-end: 8;
 }
 
-.factory-parts-enumeration, .chooser-title{
+.factory-item-grid {
+    grid-column: span 2;
+}
+
+.factory-parts-enumeration,
+.chooser-title {
     color: #FFFFFF;
+}
+
+.factory-parts-enumeration {
+    margin-bottom: 50px;
 }
 
 .chooser-title {
@@ -22,4 +30,9 @@
 .chooser-union {
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
+}
+
+.factory-grid-title {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }

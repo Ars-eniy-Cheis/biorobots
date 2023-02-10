@@ -1,13 +1,3 @@
-.wallet {
-    grid-template-columns: auto;
-    grid-gap: 50px;
-}
-
-.gypsy-wrapper,
-.coins {
-    display: flex;
-}
-
 .gypsy-check-box-label {
     color: #FFFFFF;
 }
@@ -22,13 +12,34 @@
 }
 
 .coins-wrapper {
+    grid-column-start: 2;
+    grid-column-end: 9;
     width: max-content;
 }
 
 .coin-quantity {
+    grid-column-start: 2;
+    grid-column-end: 4;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 24px;
     color: #A3B8CC;
+}
+
+.wallet-grid-title {
+    grid-column-start: 2;
+    grid-column-end: 6;
+}
+
+.wallet-grid-gypsy-button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+}
+
+.wallet-grid-gypsy-check-box {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 4;
 }

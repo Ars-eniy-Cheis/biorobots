@@ -48,10 +48,12 @@ const Wallet = observer((props) => {
     }
 
     return (
-        <div className='grid wallet'>
-            <h2>
-                Кошелёк криптовалют
-            </h2>
+        <div className='main-grid'>
+            <div className='wallet-grid-title'>
+                <h2>
+                    Кошелёк криптовалют
+                </h2>
+            </div>
             <div className='coins-wrapper'>
                 <div className='coins'>
                     {coins}
@@ -60,12 +62,14 @@ const Wallet = observer((props) => {
             <div className='coin-quantity'>
                 {props.coinQuantity} biorobo {declination(props.coinQuantity, ['монета', 'монеты', 'монет'])}
             </div>
-            <div className='gypsy-wrapper'>
+            <div className='wallet-grid-gypsy-button'>
                 <Button
                     className='text transparent-button gypsy-button'
                     onClick={gypsyHandler}
                     title={'Нацыганить'}
                 />
+            </div>
+            <div className='wallet-grid-gypsy-check-box'>
                 <CheckBox
                     className={'gypsy-checkbox'}
                     id={'cb2'}

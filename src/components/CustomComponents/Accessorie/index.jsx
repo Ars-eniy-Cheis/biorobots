@@ -20,7 +20,7 @@ const Accessorie = (props) => {
     }
 
     return (
-        <div className='accessorie'>
+        <div className='accessorie-grid'>
             {image}
             <div className={props.accessorieNameStyle}>
                 {props.name}

@@ -58,7 +58,7 @@ const MainPage = observer((props) => {
       <Header
         toSection={'factory'}
       />
-      <div className='grid body-wrap'>
+      <div className='body-wrap'>
         <Logo
           sectionId={sections[1]}
         />
@@ -86,6 +86,7 @@ const MainPage = observer((props) => {
           buttonHandlers={[[buyHandler, storageStore.incrementBiohandQuantity], [buyHandler, storageStore.incrementChipQuantity], [buyHandler, storageStore.incrementSoulQuantity]]}
           accessorieNames={['Биорука', 'Микрочип', 'Душа']}
           accessoriePrices={[storageStore.biohandBuyPrice, storageStore.chipBuyPrice, storageStore.soulBuyPrice]}
+          gridColumnStart={2}
         />
         <AccessorieRow
           sectionId={sections[4]}
@@ -101,6 +102,7 @@ const MainPage = observer((props) => {
           buttonHandlers={[[sellHandler, storageStore.decrementBiohandQuantity], [sellHandler, storageStore.decrementChipQuantity], [sellHandler, storageStore.decrementSoulQuantity]]}
           accessorieNames={['Биорука', 'Микрочип', 'Душа']}
           accessoriePrices={[storageStore.biohandSellPrice, storageStore.chipSellPrice, storageStore.soulSellPrice]}
+          gridColumnStart={2}
         />
         <Factory
           sectionId={sections[5]}
