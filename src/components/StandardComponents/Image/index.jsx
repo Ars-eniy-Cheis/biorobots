@@ -1,4 +1,7 @@
-import '../../../assets/styles/factoryImage.scss';
+import '../../../assets/styles/StandardComponents/Images/factoryImage.scss';
+import '../../../assets/styles/StandardComponents/Images/logoImage.scss';
+import '../../../assets/styles/StandardComponents/Images/pacManImage.scss';
+import '../../../assets/styles/StandardComponents/Images/accessorieImage.scss';
 
 const Image = (props) => {
 

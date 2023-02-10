@@ -1,6 +1,6 @@
 import Accessorie from '../../CustomComponents/Accessorie';
 
-import '../../../assets/styles/accessorie.scss';
+import '../../../assets/styles/Sections/accessorie.scss';
 
 const AccessorieRow = (props) => {
 
@@ -27,7 +27,7 @@ const AccessorieRow = (props) => {
             <h2>
                 {props.rowName}
             </h2>
-            <div className='accessories'>
+            <div className='grid accessories'>
                 {accessories}
             </div>
         </div>

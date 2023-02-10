@@ -1,5 +1,3 @@
-import '../../../assets/styles/factoryImage.scss';
-
 const ClickableImage = (props) => {
 
     let image = (

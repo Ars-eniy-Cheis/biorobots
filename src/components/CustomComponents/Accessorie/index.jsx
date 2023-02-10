@@ -13,7 +13,7 @@ const Accessorie = (props) => {
     let disabled = false;
     let accessorieQuantity = (<div />);
     if (typeof props.accessorieQuantity !== 'object') {
-        accessorieQuantity = (<div className={props.accessorieNameStyle}> {props.accessorieQuantity} шт. </div>)
+        accessorieQuantity = (<div className={props.accessorieNameStyle}> {props.accessorieQuantity} шт. </div>);
         if (props.accessorieQuantity === 0) {
             disabled = true;
         }

@@ -3,9 +3,9 @@ import Image from '../../StandardComponents/Image';
 
 import scrollTo from '../../../utils/scrollTo';
 
-import { pacMan } from '../../../assets/icons'
+import { pacMan } from '../../../assets/icons';
 
-import '../../../assets/styles/Header.scss';
+import '../../../assets/styles/Sections/header.scss';
 
 const Header = (props) => {
     const clickHandle = () => scrollTo({ id: props.toSection });
@@ -14,11 +14,11 @@ const Header = (props) => {
             <div className='header-wrapper'>
                 <Image
                     src={pacMan}
-                    alt='pac-man'
+                    alt='pac-man-image'
                     className=''
                 />
                 <Button
-                    className='header-button'
+                    className='text bordered-button header-button'
                     title='Произвести биоробота'
                     onClick={clickHandle}
                 />

@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 
-import Header from '../../components/Sections/Header'
-import Logo from '../../components/Sections/Logo'
-import Wallet from '../../components/Sections/Wallet'
-import AccessorieRow from '../../components/Sections/AccessorieRow'
+import Header from '../../components/Sections/Header';
+import Logo from '../../components/Sections/Logo';
+import Wallet from '../../components/Sections/Wallet';
+import AccessorieRow from '../../components/Sections/AccessorieRow';
 import Factory from '../../components/Sections/Factory';
 
 import gypsyCoinStore from '../../store/GypsyCoinStore';
@@ -23,38 +23,9 @@ import {
   soulNormal,
   soulActive,
   soulDisable,
-} from '../../assets/icons'
+} from '../../assets/icons';
 
-import '../../assets/styles/MainPage.scss';
-import '../../assets/styles/Common.scss';
-
-/*
-Вынести в отдельный компонент:
-
-1) Чек-бокс ✅
-2) Кнопку ✅
-3) Радио-баттан ✅
-4) Картинку ✅
-5) иконки с деталямим на фабрике ✅
-
-Изменить отображение: 
-1) Пак-мана ✅
-2) Чек-бокса ✅
-3) Радио-баттана ✅
-
-Наложить логику на:
-1) Чек-бокс и кнопку нацыганивания монет ✅
-2) Радио-баттоны ✅
-3) Иконки на фабрике ✅
-4) Картинку робота на фабрике ✅
-
-Создать функци:
-1) Выдающую текст, в зависимости от того, каких компонентов не хватает ✅
-
-в css объеденить все повторяющиеся элементы
-
-В проверить всё ещё раз и зарефакторить при необходимости
-*/
+import '../../assets/styles/Pages/mainPage.scss';
 
 const sections = ["header", "logo", "wallet", "market", "storage", "factory"];
 
@@ -65,7 +36,7 @@ const MainPage = observer((props) => {
 
   let detailIconRowStores = [];
   for (let i = 0; i < iconRowQuantity; i++) {
-    detailIconRowStores.push(new DetailIconRowStore())
+    detailIconRowStores.push(new DetailIconRowStore());
   }
 
   const buyHandler = (price, quantity, changer) => {
@@ -87,7 +58,7 @@ const MainPage = observer((props) => {
       <Header
         toSection={'factory'}
       />
-      <div className='body-wrap'>
+      <div className='grid body-wrap'>
         <Logo
           sectionId={sections[1]}
         />
@@ -107,10 +78,10 @@ const MainPage = observer((props) => {
           quantity={accessoriesQuantityInRow}
           pictures={[biohand, chip, soul]}
           picturesAlt={['Biohand', 'Chip', 'Soul']}
-          accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
-          accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
+          accessorieNameStyles={['accessorie-name info-text', 'accessorie-name info-text', 'accessorie-name info-text']}
+          accessoriePriceStyles={['accessorie-price text', 'accessorie-price text', 'accessorie-price text']}
           accessoriesQuantity={[{}, {}, {}]}
-          buttonStyles={['market-button', 'market-button', 'market-button']}
+          buttonStyles={['text bordered-button market-button', 'text bordered-button market-button', 'text bordered-button market-button']}
           buttonActionsNames={['Установить', 'Установить', 'Установить']}
           buttonHandlers={[[buyHandler, storageStore.incrementBiohandQuantity], [buyHandler, storageStore.incrementChipQuantity], [buyHandler, storageStore.incrementSoulQuantity]]}
           accessorieNames={['Биорука', 'Микрочип', 'Душа']}
@@ -122,10 +93,10 @@ const MainPage = observer((props) => {
           quantity={accessoriesQuantityInRow}
           pictures={[{}, {}, {}]}
           picturesAlt={['Biohand', 'Chip', 'Soul']}
-          accessorieNameStyles={['accessorie-name', 'accessorie-name', 'accessorie-name']}
-          accessoriePriceStyles={['accessorie-price', 'accessorie-price', 'accessorie-price']}
+          accessorieNameStyles={['accessorie-name info-text', 'accessorie-name info-text', 'accessorie-name info-text']}
+          accessoriePriceStyles={['accessorie-price text', 'accessorie-price text', 'accessorie-price text']}
           accessoriesQuantity={[storageStore.biohandQuantity, storageStore.chipQuantity, storageStore.soulQuantity]}
-          buttonStyles={['storage-button', 'storage-button', 'storage-button']}
+          buttonStyles={['text bordered-button  storage-button', 'text bordered-button storage-button', 'text bordered-button storage-button']}
           buttonActionsNames={['Продать', 'Продать', 'Продать']}
           buttonHandlers={[[sellHandler, storageStore.decrementBiohandQuantity], [sellHandler, storageStore.decrementChipQuantity], [sellHandler, storageStore.decrementSoulQuantity]]}
           accessorieNames={['Биорука', 'Микрочип', 'Душа']}
@@ -145,4 +116,4 @@ const MainPage = observer((props) => {
   );
 })
 
-export default MainPage
+export default MainPage;

@@ -4,14 +4,16 @@ const FactoryChooser = (props) => {
 
     return (
         <div>
-            <div className='chooser-title'>{props.title}: </div>
-            <div className='chooser-union'>
+            <div className={props.titleClassName}>{props.title}: </div>
+            <div className='grid chooser-union'>
                 <RadioButton
                     chooserId={props.chooserIds[0]}
                     value={props.firstValue}
                     name={props.chooserName}
                     onChange={props.chooserHandler}
                     onChangeValue={true}
+                    labelClassName={props.labelClassName}
+                    chooserClassName={props.chooserClassName}
                 />
                 <RadioButton
                     chooserId={props.chooserIds[1]}
@@ -19,6 +21,8 @@ const FactoryChooser = (props) => {
                     name={props.chooserName}
                     onChange={props.chooserHandler}
                     onChangeValue={false}
+                    labelClassName={props.labelClassName}
+                    chooserClassName={props.chooserClassName}
                 />
             </div>
         </div>

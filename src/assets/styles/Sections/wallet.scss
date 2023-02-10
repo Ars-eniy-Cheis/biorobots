@@ -1,0 +1,34 @@
+.wallet {
+    grid-template-columns: auto;
+    grid-gap: 50px;
+}
+
+.gypsy-wrapper,
+.coins {
+    display: flex;
+}
+
+.gypsy-check-box-label {
+    color: #FFFFFF;
+}
+
+.coin {
+    display: inline-block;
+    margin-right: -7px;
+}
+
+.coins {
+    flex-direction: row-reverse;
+}
+
+.coins-wrapper {
+    width: max-content;
+}
+
+.coin-quantity {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #A3B8CC;
+}

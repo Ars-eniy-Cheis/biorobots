@@ -1,0 +1,13 @@
+.modal-coin {
+    height: 52px;
+    width: auto;
+}
+
+.wallet-modal-wrap {
+    margin: 10px 10% 10px 10%;
+    width: 580px;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    //justify-content: space-between;
+}

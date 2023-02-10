@@ -3,19 +3,19 @@ import { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
-import { declination } from '../../../utils/declination'
+import { declination } from '../../../utils/declination';
 
 import Button from '../../StandardComponents/Inputs/Button';
 import CheckBox from '../../StandardComponents/Inputs/CheckBox';
 import ModalWindow from '../../CustomComponents/ModalWindow';
 
-import { coin } from '../../../assets/icons'
+import { coin } from '../../../assets/icons';
 
-import '../../../assets/styles/Wallet.scss';
+import '../../../assets/styles/Sections/wallet.scss';
 
 const Wallet = observer((props) => {
 
-    const [modalWindowActive, setModalWindowActive] = useState(false)
+    const [modalWindowActive, setModalWindowActive] = useState(false);
 
     let additionalQuantity = 1;
 
@@ -26,10 +26,10 @@ const Wallet = observer((props) => {
     const gypsyHandler = () => {
         if (props.coinQuantity + additionalQuantity <= props.maxCoins) {
             if (props.isCheked) {
-                props.incrementCoinQuantity(props.gypsyingCoins)
+                props.incrementCoinQuantity(props.gypsyingCoins);
             }
             else {
-                props.incrementCoinQuantity(1)
+                props.incrementCoinQuantity(1);
             }
         }
         else {
@@ -44,11 +44,11 @@ const Wallet = observer((props) => {
             <div className='coin'>
                 <img src={coin} alt='coin' />
             </div>
-        )
+        );
     }
 
     return (
-        <div className='wallet'>
+        <div className='grid wallet'>
             <h2>
                 Кошелёк криптовалют
             </h2>
@@ -57,12 +57,12 @@ const Wallet = observer((props) => {
                     {coins}
                 </div>
             </div>
-            <div className='sub-title'>
+            <div className='coin-quantity'>
                 {props.coinQuantity} biorobo {declination(props.coinQuantity, ['монета', 'монеты', 'монет'])}
             </div>
-            <div>
+            <div className='gypsy-wrapper'>
                 <Button
-                    className='gypsy-button'
+                    className='text transparent-button gypsy-button'
                     onClick={gypsyHandler}
                     title={'Нацыганить'}
                 />
@@ -71,12 +71,12 @@ const Wallet = observer((props) => {
                     id={'cb2'}
                     defaultChecked={props.isCheked}
                     onChange={props.check}
-                    labelClassName={'gypsy-checkbox-label'}
-                    value={'Цыганить по' + props.gypsyingCoins + declination(props.gypsyingCoins, ['монете', 'монеты', 'монет'])}
+                    labelClassName={'gypsy-check-box-label text'}
+                    value={'Цыганить по ' + props.gypsyingCoins + ' ' + declination(props.gypsyingCoins, ['монете', 'монеты', 'монет'])}
                 />
             </div>
             <ModalWindow active={modalWindowActive} setActive={setModalWindowActive}>
-                <div className='wallet-modal-wrap'>
+                <div className='grid wallet-modal-wrap'>
                     <img src={coin} alt='coin' className='modal-coin' />
                     <h2 className='modal-window-text modal-window-title'> Количество монет <br /> ограничено </h2>
                     <div>  </div>

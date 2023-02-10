@@ -1,19 +1,19 @@
-import Image from '../../StandardComponents/Image'
+import Image from '../../StandardComponents/Image';
 
-import '../../../assets/styles/Logo.scss';
+import '../../../assets/styles/Sections/logo.scss';
 
-import { logo } from '../../../assets/icons'
+import { logo } from '../../../assets/icons';
 
 const Logo = () => {
     return (
-        <section className='logo-grid'>
+        <section className='grid logo-grid'>
             <div>
                 <h1>
                     Фабрика по производству биороботов
                 </h1>
-                <div className='sub-title'>
+                <h3>
                     класса «монитор-кресло»
-                </div>
+                </h3>
             </div>
             <div className='logo-image-wraper'>
                 <Image

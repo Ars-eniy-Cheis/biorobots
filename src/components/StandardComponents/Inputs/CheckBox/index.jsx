@@ -1,3 +1,5 @@
+import '../../../../assets/styles/StandardComponents/Inputs/CheckBoxes/gypsyCheckBox.scss';
+
 const CheckBox = (props) => {
 
     return (

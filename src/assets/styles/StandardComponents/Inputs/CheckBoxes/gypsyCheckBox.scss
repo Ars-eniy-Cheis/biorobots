@@ -1,0 +1,37 @@
+.gypsy-checkbox input[type=checkbox] {
+    display: none;
+}
+
+.gypsy-checkbox label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+    margin-right: 0;
+    line-height: 40px;
+    user-select: none;
+}
+
+.gypsy-checkbox label:before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background: url(../../../../icons//checkBox/normal.png) 0 0 no-repeat;
+
+}
+
+.gypsy-checkbox input[type=checkbox]:checked+label:before {
+    background: url(../../../../icons/checkBox/active.png) 0 0 no-repeat;
+}
+
+.gypsy-checkbox label:hover:before {
+    background: url(../../../../icons/checkBox/hover.png) 0 0 no-repeat;
+}
+
+.gypsy-checkbox input[type=checkbox]:disabled+label:before {
+    background: url(../../../../icons/checkBox/disable.png) 0 0 no-repeat;
+}

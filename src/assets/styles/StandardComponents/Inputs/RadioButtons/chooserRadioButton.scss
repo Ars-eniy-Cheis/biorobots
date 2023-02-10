@@ -1,0 +1,47 @@
+.chooser-label {
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.chooser {
+    margin-bottom: 0px;
+}
+
+.chooser input[type=radio] {
+    vertical-align: bottom;
+    display: none;
+}
+
+.chooser label {
+    vertical-align: bottom;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 40px;
+    margin-right: 0;
+    line-height: 40px;
+    user-select: none;
+}
+
+.chooser label:before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background: url(../../../../icons/radioButton/normal.png) 0 0 no-repeat;
+}
+
+.chooser input[type=radio]:checked+label:before {
+    background: url(../../../../icons/radioButton/active.png) 0 0 no-repeat;
+}
+
+.chooser label:hover:before {
+    background: url(../../../../icons/radioButton/hover.png) 0 0 no-repeat;
+}
+
+.chooser input[type=radio]:disabled+label:before {
+    background: url(../../../../icons/radioButton/disable.png) 0 0 no-repeat;
+}

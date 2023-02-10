@@ -1,0 +1,27 @@
+.accessories {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.accessorie {
+    text-align: center;
+    margin-right: 30px;
+}
+
+.accessorie-name {
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.accessorie-price {
+    margin-bottom: 20px;
+    color: #A3B8CC;
+}
+
+.accessorie-quantity {
+    margin-bottom: 20px;
+}
+
+.accessorie-image-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+}

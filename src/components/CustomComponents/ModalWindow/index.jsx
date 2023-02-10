@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import Button from "../../StandardComponents/Inputs/Button";
+import Button from '../../StandardComponents/Inputs/Button';
 
-import '../../../assets/styles/modalWindow.scss'
+import '../../../assets/styles/CustomComponents/ModalWindows/modalWindow.scss';
+import '../../../assets/styles/CustomComponents/ModalWindows/walletModalWindow.scss';
+import '../../../assets/styles/CustomComponents/ModalWindows/factoryModalWindow.scss';
 
 const ModalWindow = (props) => {
     return (
@@ -11,14 +13,14 @@ const ModalWindow = (props) => {
                 <Button
                     title={'\u00D7'}
                     onClick={() => { props.setActive(false) }}
-                    className='cross-button'
+                    className='text transparent-button cross-button'
                 />
                 <div className='modal-window-wrap-content'>
                     {props.children}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ModalWindow

@@ -1,0 +1,25 @@
+.factory-items {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0px;
+    inline-size: max-content;
+}
+
+.factory-item {
+    margin-right: 30px;
+    width: 270px;
+    position: relative;
+}
+
+.factory-parts-enumeration, .chooser-title{
+    color: #FFFFFF;
+}
+
+.chooser-title {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.chooser-union {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+}

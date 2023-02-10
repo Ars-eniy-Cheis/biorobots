@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import ClickableImage from '../../CustomComponents/ClickableImage';
 
-import '../../../assets/styles/iconRow.scss';
+import '../../../assets/styles/CustomComponents/iconRow.scss';
 
 const IconRow = (props) => {
 
@@ -47,11 +47,11 @@ const IconRow = (props) => {
                 src={props.detailIconRowStore.detailIconImage[i]}
                 index={i}
                 className='icon'
-            />)
+            />);
     }
 
     return (
-        <div className='icon-row'>
+        <div className='grid icon-row'>
             {icons}
         </div>
     );

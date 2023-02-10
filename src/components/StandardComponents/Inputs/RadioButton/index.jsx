@@ -1,9 +1,11 @@
+import '../../../../assets/styles/StandardComponents/Inputs/RadioButtons/chooserRadioButton.scss';
+
 const RadioButton = (props) => {
 
     return (
-        <div className='chooser'>
+        <div className={props.chooserClassName}>
             <input id={props.chooserId} type="radio" name={props.name} onChange={() => { props.onChange(props.onChangeValue) }} />
-            <label className='radio-title' for={props.chooserId}> {props.value} </label>
+            <label className={props.labelClassName} for={props.chooserId}> {props.value} </label>
         </div>
 
     );
