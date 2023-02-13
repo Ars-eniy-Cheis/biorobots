@@ -1,16 +1,6 @@
 header {
-    //position: relative;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 90px;
-}
-
-.header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 50;
-    padding-bottom: 50;
+    padding-top: 48px;
+    margin-bottom: 96px;
 }
 
 .header-grid-image {
@@ -21,5 +11,53 @@ header {
 .header-grid-button {
     grid-column-start: 7;
     grid-column-end: 9;
-    
+}
+
+@media only screen and (max-width: 1919px) {
+    header {
+        margin-bottom: 100px;
+    }
+
+    .header-grid-image {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .header-grid-button {
+        grid-column-start: 6;
+        grid-column-end: 8;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    header {
+        padding-top: 24px;
+        margin-bottom: 80px;
+    }
+
+    .header-grid-image {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .header-grid-button {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    header {
+        padding-top: 24px;
+        margin-bottom: 60px;
+    }
+
+    .header-grid-image {
+        display: none;
+    }
+
+    .header-grid-button {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
 }

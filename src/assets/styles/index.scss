@@ -136,10 +136,11 @@ h3 {
 
 .body-wrap {
     //margin-top: 90px;
+    //height: auto;
     display: grid;
     grid-gap: 100px;
-    justify-content: space-between;
-    grid-template-rows: repeat(5, 1fr);
+   
+    grid-template-rows: repeat(5, auto);
 }
 
 .main-grid {
@@ -148,7 +149,8 @@ h3 {
     padding-left: 14%;
     padding-right: 14%;
     grid-column-gap: 32px;
-    grid-row-gap: 0px;
+    grid-row-gap: 34px;
+    height: max-content;
 }
 
 .sub-main-grid {
@@ -171,4 +173,121 @@ button {
     padding: 0;
     background: none;
     border: none;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    h1 {
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .info-text {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .medium-text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .second-text {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .sub-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+@media only screen and (max-width: 1919px) {
+    .main-grid {
+        grid-template-columns: repeat(8, 1fr);
+        padding-left: 0%;
+        padding-right: 0%;
+        grid-column-gap: 13px;
+    }
+
+    .sub-main-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 13px;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .main-grid {
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 17%;
+        padding-right: 17%;
+        grid-column-gap: 13px;
+    }
+
+    .body-wrap {
+        grid-gap: 80px;
+    }
+
+    .sub-main-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 13px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+        line-height: 48px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 13%;
+        padding-right: 13%;
+        grid-column-gap: 13px;
+        grid-row-gap: 20px;
+    }
+
+    .body-wrap {
+        grid-gap: 60px;
+    }
+
+    .sub-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 13px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    h1 {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
 }

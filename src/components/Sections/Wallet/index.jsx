@@ -49,11 +49,9 @@ const Wallet = observer((props) => {
 
     return (
         <div className='main-grid'>
-            <div className='wallet-grid-title'>
-                <h2>
+                <h2 className='wallet-grid-title'>
                     Кошелёк криптовалют
                 </h2>
-            </div>
             <div className='coins-wrapper'>
                 <div className='coins'>
                     {coins}

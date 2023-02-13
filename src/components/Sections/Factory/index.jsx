@@ -63,7 +63,7 @@ const Factory = observer((props) => {
                 </h2>
             </div>
             <div className='factory-items-grid sub-main-grid'>
-                <div className='factory-item-grid'>
+                <div className='factory-item-grid-chooser'>
                     <FactoryChooser
                         titleClassName={'chooser-title medium-text'}
                         chooserQuantity={2}
@@ -95,13 +95,13 @@ const Factory = observer((props) => {
                         onClick={producingHandler}
                     />
                 </div>
-                <div className='factory-item-grid'>
+                <div className='factory-item-grid-icons'>
                     {iconRows}
                     <div className='second-text factory-parts-enumeration'>
                         {productionProsperity([...props.partsQuantity, props.coinQuantity], [...props.iconQuantities, 10], ['биоруки', 'микрочипа', 'души', 'монет'])}
                     </div>
                 </div>
-                <div className='factory-item-grid'>
+                <div className='factory-item-grid-robot'>
                     <Image
                         src={robotStore.robotImage}
                         alt={robotStore.robotAlt}

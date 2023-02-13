@@ -43,3 +43,90 @@
     grid-column-end: 5;
     grid-row-start: 4;
 }
+
+@media only screen and (max-width: 1919px) {
+    .wallet-grid-title {
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
+
+    .coins-wrapper {
+        grid-column-start: 2;
+        grid-column-end: 5;
+        //width: max-content;
+    }
+
+    .wallet-grid-gypsy-button {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+    }
+
+    .wallet-grid-gypsy-check-box {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 4;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .wallet-grid-title {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .coins-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        //width: max-content;
+    }
+
+    .coin-quantity {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .wallet-grid-gypsy-button {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+    }
+
+    .wallet-grid-gypsy-check-box {
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 4;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .wallet-grid-title {
+        text-align: center;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .coins-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .coin-quantity {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .wallet-grid-gypsy-button {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+    }
+
+    .wallet-grid-gypsy-check-box {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+    }
+}

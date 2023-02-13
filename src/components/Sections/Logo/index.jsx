@@ -8,10 +8,10 @@ const Logo = () => {
     return (
         <section className='main-grid'>
             <div className='logo-grid-title'>
-                <h1>
+                <h1 className='main-logo'>
                     Фабрика по производству биороботов
                 </h1>
-                <h3>
+                <h3 className='sub-logo'>
                     класса «монитор-кресло»
                 </h3>
             </div>
